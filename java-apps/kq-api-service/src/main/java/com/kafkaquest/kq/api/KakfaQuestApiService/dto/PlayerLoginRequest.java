@@ -1,4 +1,4 @@
-package com.kafkaquest.kq.api.KESAApiService.dto;
+package com.kafkaquest.kq.api.KafkaQuestApiService.dto;
 
 import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;

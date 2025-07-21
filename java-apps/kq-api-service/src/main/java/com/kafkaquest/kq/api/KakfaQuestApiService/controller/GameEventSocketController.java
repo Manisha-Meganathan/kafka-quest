@@ -1,12 +1,12 @@
-package com.kafkaquest.kq.api.KESAApiService.controller;
+package com.kafkaquest.kq.api.KafkaQuestApiService.controller;
 
-import com.kafkaquest.kq.api.KESAApiService.config.websocket.PlayerSession;
-import com.kafkaquest.kq.api.KESAApiService.config.websocket.WebSocketSessionManager;
-import com.kafkaquest.kq.api.KESAApiService.dto.Notification;
-import com.kafkaquest.kq.api.KESAApiService.dto.UIEvent;
-import com.kafkaquest.kq.api.KESAApiService.kafka.EventProducer;
-import com.kafkaquest.kq.api.KESAApiService.service.UndeliveredResponsesManager;
-import com.kafkaquest.kq.api.KESAApiService.service.WebSocketMessagingService;
+import com.kafkaquest.kq.api.KafkaQuestApiService.config.websocket.PlayerSession;
+import com.kafkaquest.kq.api.KafkaQuestApiService.config.websocket.WebSocketSessionManager;
+import com.kafkaquest.kq.api.KafkaQuestApiService.dto.Notification;
+import com.kafkaquest.kq.api.KafkaQuestApiService.dto.UIEvent;
+import com.kafkaquest.kq.api.KafkaQuestApiService.kafka.EventProducer;
+import com.kafkaquest.kq.api.KafkaQuestApiService.service.UndeliveredResponsesManager;
+import com.kafkaquest.kq.api.KafkaQuestApiService.service.WebSocketMessagingService;
 import com.kafkaquest.kq.common.util.models.events.Event;
 import com.kafkaquest.kq.common.util.models.events.ProjectionEventResponse;
 import com.kafkaquest.kq.common.util.models.kafkakeys.ApiKey;
@@ -22,10 +22,10 @@ import java.time.LocalDateTime;
 import java.util.List;
 import java.util.UUID;
 
-import static com.kafkaquest.kq.api.KESAApiService.config.websocket.PlayerSessionKeys.PLAYER_ID;
-import static com.kafkaquest.kq.api.KESAApiService.config.websocket.PlayerSessionKeys.TRACKING_ID;
-import static com.kafkaquest.kq.api.KESAApiService.config.websocket.WebSocketTopics.EVENT_RESPONSE;
-import static com.kafkaquest.kq.api.KESAApiService.config.websocket.WebSocketTopics.NOTIFICATION_RESPONSE;
+import static com.kafkaquest.kq.api.KafkaQuestApiService.config.websocket.PlayerSessionKeys.PLAYER_ID;
+import static com.kafkaquest.kq.api.KafkaQuestApiService.config.websocket.PlayerSessionKeys.TRACKING_ID;
+import static com.kafkaquest.kq.api.KafkaQuestApiService.config.websocket.WebSocketTopics.EVENT_RESPONSE;
+import static com.kafkaquest.kq.api.KafkaQuestApiService.config.websocket.WebSocketTopics.NOTIFICATION_RESPONSE;
 
 @Controller
 @AllArgsConstructor

@@ -1,4 +1,4 @@
-package com.kafkaquest.kq.api.KESAApiService.model;
+package com.kafkaquest.kq.api.KafkaQuestApiService.model;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
@@ -13,7 +13,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "players", schema = "kesa_auth")
+@Table(name = "players", schema = "kq_auth")
 public class Player {
 
     @Id

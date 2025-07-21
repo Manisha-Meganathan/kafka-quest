@@ -1,4 +1,4 @@
-package com.kafkaquest.kq.api.KESAApiService.service;
+package com.kafkaquest.kq.api.KafkaQuestApiService.service;
 
 import com.kafkaquest.kq.common.util.models.events.ProjectionEventResponse;
 import org.springframework.stereotype.Component;

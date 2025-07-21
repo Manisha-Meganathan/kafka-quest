@@ -1,5 +1,5 @@
-apply from: '../KESA-Common/shadow-jar.plugin.gradle'
+apply from: '../kq-common/shadow-jar.plugin.gradle'
 
-rootProject.name = 'KESA-Aggregate'
+rootProject.name = 'kq-aggregate'
 
-apply from: '../KESA-Common/common.gradle'
+apply from: '../kq-common/common.gradle'

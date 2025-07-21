@@ -19,7 +19,7 @@ repositories {
 }
 
 dependencies {
-    implementation project(':KESA-Common')
+    implementation project(':kq-common')
 
     // This dependency is used by the application.
     implementation 'com.google.guava:guava:31.1-jre'

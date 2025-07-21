@@ -1,4 +1,4 @@
-package com.kafkaquest.kq.api.KESAApiService.exception;
+package com.kafkaquest.kq.api.KafkaQuestApiService.exception;
 
 public class EmailDeliveryException extends RuntimeException {
     public EmailDeliveryException() {

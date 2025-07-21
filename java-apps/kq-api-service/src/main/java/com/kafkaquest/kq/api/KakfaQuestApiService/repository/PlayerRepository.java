@@ -1,6 +1,6 @@
-package com.kafkaquest.kq.api.KESAApiService.repository;
+package com.kafkaquest.kq.api.KafkaQuestApiService.repository;
 
-import com.kafkaquest.kq.api.KESAApiService.model.Player;
+import com.kafkaquest.kq.api.KafkaQuestApiService.model.Player;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

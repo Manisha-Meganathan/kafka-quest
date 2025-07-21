@@ -1,10 +1,10 @@
-package com.kafkaquest.kq.api.KESAApiService.kafka;
+package com.kafkaquest.kq.api.KafkaQuestApiService.kafka;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.module.SimpleModule;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
-import com.kafkaquest.kq.api.KESAApiService.config.kafka.KafkaTopicProperties;
-import com.kafkaquest.kq.api.KESAApiService.service.WebSocketMessagingService;
+import com.kafkaquest.kq.api.KafkaQuestApiService.config.kafka.KafkaTopicProperties;
+import com.kafkaquest.kq.api.KafkaQuestApiService.service.WebSocketMessagingService;
 import com.kafkaquest.kq.common.util.models.events.responsedata.ExceptionalEventResponseData;
 import com.kafkaquest.kq.common.util.models.events.responsedata.GameDiscardEventResponseData;
 import com.kafkaquest.kq.common.util.models.events.responsedata.GameStartedEventResponseData;
@@ -22,7 +22,7 @@ import org.springframework.stereotype.Component;
 
 import java.util.Objects;
 
-import static com.kafkaquest.kq.api.KESAApiService.config.websocket.WebSocketTopics.EVENT_RESPONSE;
+import static com.kafkaquest.kq.api.KafkaQuestApiService.config.websocket.WebSocketTopics.EVENT_RESPONSE;
 
 @Component
 @AllArgsConstructor

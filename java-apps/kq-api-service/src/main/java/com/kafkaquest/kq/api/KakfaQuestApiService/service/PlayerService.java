@@ -1,10 +1,10 @@
-package com.kafkaquest.kq.api.KESAApiService.service;
+package com.kafkaquest.kq.api.KafkaQuestApiService.service;
 
-import com.kafkaquest.kq.api.KESAApiService.exception.BadCredentialsException;
-import com.kafkaquest.kq.api.KESAApiService.exception.UsernameExistsException;
-import com.kafkaquest.kq.api.KESAApiService.exception.UsernameValidationFailed;
-import com.kafkaquest.kq.api.KESAApiService.model.Player;
-import com.kafkaquest.kq.api.KESAApiService.repository.PlayerRepository;
+import com.kafkaquest.kq.api.KafkaQuestApiService.exception.BadCredentialsException;
+import com.kafkaquest.kq.api.KafkaQuestApiService.exception.UsernameExistsException;
+import com.kafkaquest.kq.api.KafkaQuestApiService.exception.UsernameValidationFailed;
+import com.kafkaquest.kq.api.KafkaQuestApiService.model.Player;
+import com.kafkaquest.kq.api.KafkaQuestApiService.repository.PlayerRepository;
 import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

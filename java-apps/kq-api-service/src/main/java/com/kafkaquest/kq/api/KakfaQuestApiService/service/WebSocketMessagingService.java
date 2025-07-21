@@ -1,8 +1,8 @@
-package com.kafkaquest.kq.api.KESAApiService.service;
+package com.kafkaquest.kq.api.KafkaQuestApiService.service;
 
-import com.kafkaquest.kq.api.KESAApiService.config.websocket.PlayerSession;
-import com.kafkaquest.kq.api.KESAApiService.config.websocket.WebSocketSessionManager;
-import com.kafkaquest.kq.api.KESAApiService.dto.Notification;
+import com.kafkaquest.kq.api.KafkaQuestApiService.config.websocket.PlayerSession;
+import com.kafkaquest.kq.api.KafkaQuestApiService.config.websocket.WebSocketSessionManager;
+import com.kafkaquest.kq.api.KafkaQuestApiService.dto.Notification;
 import com.kafkaquest.kq.common.util.models.events.ProjectionEventResponse;
 import lombok.AllArgsConstructor;
 import org.springframework.messaging.simp.SimpMessagingTemplate;

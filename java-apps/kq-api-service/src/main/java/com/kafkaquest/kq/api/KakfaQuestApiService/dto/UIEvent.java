@@ -1,4 +1,4 @@
-package com.kafkaquest.kq.api.KESAApiService.dto;
+package com.kafkaquest.kq.api.KafkaQuestApiService.dto;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import lombok.AllArgsConstructor;

@@ -1,8 +1,8 @@
-package com.kafkaquest.kq.api.KESAApiService.controller;
+package com.kafkaquest.kq.api.KafkaQuestApiService.controller;
 
-import com.kafkaquest.kq.api.KESAApiService.dto.DemoRequest;
-import com.kafkaquest.kq.api.KESAApiService.exception.EmailDeliveryException;
-import com.kafkaquest.kq.api.KESAApiService.service.EmailService;
+import com.kafkaquest.kq.api.KafkaQuestApiService.dto.DemoRequest;
+import com.kafkaquest.kq.api.KafkaQuestApiService.exception.EmailDeliveryException;
+import com.kafkaquest.kq.api.KafkaQuestApiService.service.EmailService;
 import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.CrossOrigin;

@@ -1,4 +1,4 @@
-package com.kafkaquest.kq.api.KESAApiService.dto;
+package com.kafkaquest.kq.api.KafkaQuestApiService.dto;
 
 import com.kafkaquest.kq.common.util.models.events.enums.EventInitiatedBy;
 import com.kafkaquest.kq.common.util.models.events.enums.EventType;

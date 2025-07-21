@@ -1,4 +1,4 @@
-package com.kafkaquest.kq.api.KESAApiService.config.websocket;
+package com.kafkaquest.kq.api.KafkaQuestApiService.config.websocket;
 
 import lombok.AllArgsConstructor;
 import org.springframework.context.event.EventListener;

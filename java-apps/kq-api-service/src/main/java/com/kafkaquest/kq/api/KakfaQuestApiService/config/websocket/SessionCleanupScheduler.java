@@ -1,9 +1,9 @@
-package com.kafkaquest.kq.api.KESAApiService.config.websocket;
+package com.kafkaquest.kq.api.KafkaQuestApiService.config.websocket;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.kafkaquest.kq.api.KESAApiService.kafka.EventProducer;
-import com.kafkaquest.kq.api.KESAApiService.service.UndeliveredResponsesManager;
+import com.kafkaquest.kq.api.KafkaQuestApiService.kafka.EventProducer;
+import com.kafkaquest.kq.api.KafkaQuestApiService.service.UndeliveredResponsesManager;
 import com.kafkaquest.kq.common.util.models.events.Event;
 import com.kafkaquest.kq.common.util.models.events.eventdata.GameDiscardedEventData;
 import com.kafkaquest.kq.common.util.models.events.enums.DiscardReason;

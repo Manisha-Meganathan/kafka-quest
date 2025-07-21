@@ -3,7 +3,7 @@
  */
 package com.kafkaquest.kq.aggregate;
 
-import com.kafkaquest.kq.aggregate.config.KesaAggregateAppConfig;
+import com.kafkaquest.kq.aggregate.config.KQAggregateAppConfig;
 import com.kafkaquest.kq.aggregate.services.EventProcessor;
 import com.kafkaquest.kq.aggregate.services.JdbiConnection;
 import com.kafkaquest.kq.common.util.models.events.AggregateEvent;
@@ -34,14 +34,14 @@ public class Application {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(Application.class);
 
-    private static KesaAggregateAppConfig appConfig;
+    private static KQAggregateAppConfig appConfig;
 
     public static void configureEnvironment(String... varArgs) {
         final var env = Arrays.asList(varArgs).contains(Environment.DOCKER.getValue())
                 ? Environment.DOCKER
                 : Environment.LOCAL;
 
-        appConfig = new KesaAggregateAppConfig(env);
+        appConfig = new KQAggregateAppConfig(env);
         JdbiConnection.initialize(appConfig);
     }
 

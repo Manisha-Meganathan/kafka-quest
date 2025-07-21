@@ -1,4 +1,4 @@
-package com.kafkaquest.kq.api.KESAApiService.config.kafka;
+package com.kafkaquest.kq.api.KafkaQuestApiService.config.kafka;
 
 import lombok.Getter;
 import lombok.Setter;

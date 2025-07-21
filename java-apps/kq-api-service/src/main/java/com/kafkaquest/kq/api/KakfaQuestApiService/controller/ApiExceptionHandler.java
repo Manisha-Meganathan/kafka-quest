@@ -1,9 +1,9 @@
-package com.kafkaquest.kq.api.KESAApiService.controller;
+package com.kafkaquest.kq.api.KafkaQuestApiService.controller;
 
-import com.kafkaquest.kq.api.KESAApiService.exception.BadCredentialsException;
-import com.kafkaquest.kq.api.KESAApiService.exception.EmailDeliveryException;
-import com.kafkaquest.kq.api.KESAApiService.exception.UsernameExistsException;
-import com.kafkaquest.kq.api.KESAApiService.exception.UsernameValidationFailed;
+import com.kafkaquest.kq.api.KafkaQuestApiService.exception.BadCredentialsException;
+import com.kafkaquest.kq.api.KafkaQuestApiService.exception.EmailDeliveryException;
+import com.kafkaquest.kq.api.KafkaQuestApiService.exception.UsernameExistsException;
+import com.kafkaquest.kq.api.KafkaQuestApiService.exception.UsernameValidationFailed;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;

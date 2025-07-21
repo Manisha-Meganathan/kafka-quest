@@ -1,8 +1,8 @@
-package com.kafkaquest.kq.api.KESAApiService.controller;
+package com.kafkaquest.kq.api.KafkaQuestApiService.controller;
 
-import com.kafkaquest.kq.api.KESAApiService.dto.PlayerLoginRequest;
-import com.kafkaquest.kq.api.KESAApiService.model.Player;
-import com.kafkaquest.kq.api.KESAApiService.service.PlayerService;
+import com.kafkaquest.kq.api.KafkaQuestApiService.dto.PlayerLoginRequest;
+import com.kafkaquest.kq.api.KafkaQuestApiService.model.Player;
+import com.kafkaquest.kq.api.KafkaQuestApiService.service.PlayerService;
 import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

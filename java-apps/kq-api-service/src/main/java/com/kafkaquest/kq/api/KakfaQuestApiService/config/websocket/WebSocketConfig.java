@@ -1,4 +1,4 @@
-package com.kafkaquest.kq.api.KESAApiService.config.websocket;
+package com.kafkaquest.kq.api.KafkaQuestApiService.config.websocket;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.messaging.simp.config.MessageBrokerRegistry;

@@ -1,0 +1,8 @@
+apply from: './kq-common/shadow-jar.plugin.gradle'
+
+rootProject.name = 'KafkaQuest'
+
+include("kq-common")
+include("kq-aggregate")
+include("kq-sink-application")
+include("kq-api-service")

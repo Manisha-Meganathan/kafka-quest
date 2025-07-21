@@ -1,4 +1,4 @@
-package com.kafkaquest.kq.api.KESAApiService.kafka;
+package com.kafkaquest.kq.api.KafkaQuestApiService.kafka;
 
 import com.kafkaquest.kq.common.util.models.events.Event;
 import com.kafkaquest.kq.common.util.models.kafkakeys.ApiKey;

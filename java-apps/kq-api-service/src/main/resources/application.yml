@@ -18,8 +18,8 @@ spring:
     flyway:
         locations: classpath:db/migration
         enabled: true
-        default-schema: kesa_auth
-        schemas: kesa_auth
+        default-schema: kq_auth
+        schemas: kq_auth
     jpa:
         open-in-view: false
         show-sql: false
@@ -28,20 +28,3 @@ spring:
             dialect: org.hibernate.dialect.PostgreSQLDialect
     mvc:
         throw-exception-if-no-handler-found: true
-    # Warning: configure mail testing set up below when running locally with docker do not use configuration in docker compose
-    mail:
-        host: smtp.gmail.com
-        port: 587
-        username: ${EMAIL_USERNAME}
-        password: ${EMAIL_PASSWORD}
-        properties:
-            mail:
-                smtp:
-                    auth: true
-                    starttls:
-                        enable: true
-        kesa:
-            subject: KESA Demo Request
-            sender: ${EMAIL_SENDER}
-            sender_title: KESA Demo
-            recipients: ${EMAIL_RECIPIENTS}

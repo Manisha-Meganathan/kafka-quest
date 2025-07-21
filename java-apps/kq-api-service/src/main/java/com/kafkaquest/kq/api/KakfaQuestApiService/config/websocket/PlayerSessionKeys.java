@@ -1,4 +1,4 @@
-package com.kafkaquest.kq.api.KESAApiService.config.websocket;
+package com.kafkaquest.kq.api.KafkaQuestApiService.config.websocket;
 
 public enum PlayerSessionKeys {
     PLAYER_ID("player-id"),

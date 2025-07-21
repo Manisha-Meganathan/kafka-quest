@@ -1,4 +1,4 @@
-package com.kafkaquest.kq.api.KESAApiService.dto;
+package com.kafkaquest.kq.api.KafkaQuestApiService.dto;
 
 public enum Notification {
     NO_MESSAGES_TO_DELIVER,

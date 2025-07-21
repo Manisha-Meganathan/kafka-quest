@@ -12,8 +12,8 @@ import org.apache.commons.lang3.ObjectUtils;
 @Getter
 @ToString
 @EqualsAndHashCode(callSuper = false)
-@Slf4j(topic = "[KesaAggregateAppConfig]")
-public class KesaAggregateAppConfig extends AppConfig<AggregateKafkaPropertyKey> {
+@Slf4j(topic = "[KQAggregateAppConfig]")
+public class KQAggregateAppConfig extends AppConfig<AggregateKafkaPropertyKey> {
 
     private static final String CONFIG_PATH = "/config.properties";
 
@@ -27,7 +27,7 @@ public class KesaAggregateAppConfig extends AppConfig<AggregateKafkaPropertyKey>
 
     private final String dbPassword;
 
-    public KesaAggregateAppConfig(Environment environment) {
+    public KQAggregateAppConfig(Environment environment) {
         super(environment, AggregateKafkaPropertyKey.class, CONFIG_PATH);
         this.sourceTopicRegex = this.getByPropertyKey(Topic.SOURCE_TOPIC_REGEX.getName());
         this.sinkTopic = this.getByPropertyKey(Topic.SINK_TOPIC.getName());

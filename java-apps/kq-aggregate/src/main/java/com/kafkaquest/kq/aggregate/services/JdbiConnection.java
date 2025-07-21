@@ -1,6 +1,6 @@
 package com.kafkaquest.kq.aggregate.services;
 
-import com.kafkaquest.kq.aggregate.config.KesaAggregateAppConfig;
+import com.kafkaquest.kq.aggregate.config.KQAggregateAppConfig;
 import org.jdbi.v3.core.Jdbi;
 
 public class JdbiConnection {
@@ -10,7 +10,7 @@ public class JdbiConnection {
     private JdbiConnection() {
     }
 
-    public static void initialize(KesaAggregateAppConfig appConfig) {
+    public static void initialize(KQAggregateAppConfig appConfig) {
         if (jdbiInstance == null) {
             synchronized (JdbiConnection.class) {
                 if (jdbiInstance == null) {
