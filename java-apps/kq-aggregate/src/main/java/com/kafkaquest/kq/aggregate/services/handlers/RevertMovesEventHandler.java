@@ -33,7 +33,7 @@ import static com.kafkaquest.kq.aggregate.services.utils.EventMapper.fromDboToCo
 public class RevertMovesEventHandler implements EventHandler {
 
     private static final String SELECT_EVENTS_TO_REVERT =
-            "SELECT * FROM kesa_events.domain_events WHERE game_id = :gameId AND event_stream_id > :eventStreamId ORDER BY event_stream_id DESC";
+            "SELECT * FROM kq_events.domain_events WHERE game_id = :gameId AND event_stream_id > :eventStreamId ORDER BY event_stream_id DESC";
 
     @Override
     public List<HandlerResult> handle(byte[] event, JigsawPuzzleGameManager manager) {

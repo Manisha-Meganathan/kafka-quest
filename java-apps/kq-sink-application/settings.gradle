@@ -1,0 +1,5 @@
+apply from: '../KESA-Common/shadow-jar.plugin.gradle'
+
+rootProject.name = 'KESA-Sink-Application'
+
+apply from: '../KESA-Common/common.gradle'
