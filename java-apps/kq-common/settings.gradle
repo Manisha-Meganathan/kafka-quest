@@ -1,0 +1,3 @@
+apply from: './shadow-jar.plugin.gradle'
+
+rootProject.name = 'kq-common'

@@ -1,0 +1,47 @@
+spring:
+  kafka:
+    bootstrap-servers: localhost:9093
+    consumer:
+      group-id: kafka-api-service
+      max-partition-fetch-bytes: 4500000
+    topics:
+      producer-topic: in-topic
+      consumer-topic: out-topic
+  datasource:
+    platform: postgres
+    url: jdbc:postgresql://localhost:5432/KesaDB
+    username: postgres
+    password: password
+    driver-class-name: org.postgresql.Driver
+    initialization-mode: always
+    continue-on-error: false
+  flyway:
+    locations: classpath:db/migration
+    enabled: true
+    default-schema: kesa_auth
+    schemas: kesa_auth
+  jpa:
+    open-in-view: false
+    show-sql: false
+    hibernate:
+      ddl-auto: none
+      dialect: org.hibernate.dialect.PostgreSQLDialect
+  mvc:
+    throw-exception-if-no-handler-found: true
+  # configure mail testing set up below
+  mail:
+    host:
+    port: 587
+    username:
+    password:
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+    kesa:
+      subject: KESA Demo Request
+      sender:
+      sender_title: KESA Demo
+      recipients: []

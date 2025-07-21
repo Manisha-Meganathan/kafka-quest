@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KESA Demo Request</title>
+</head>
+<body>
+    <p style="text-align: justify;">
+        <span>Hi,</span><br><br>
+        <span th:text="${NAME} + ' has requested for a ' + 'demo'">[Name]</span><br><br>
+        <span><b>Email</b>:</span><br>
+        <span th:text="${EMAIL}">[Email]</span><br><br>
+        <span><b>Company</b>:</span><br>
+        <span th:text="${COMPANY}">[Company]</span><br><br>
+        <span><b>Company Role</b>:</span><br>
+        <span th:text="${ROLE}">[Role]</span><br><br>
+        <span><b>Company Size</b>:</span><br>
+        <span th:text="${SIZE}">[Size]</span><br><br>
+        <span><b>Country</b>:</span><br>
+        <span th:text="${COUNTRY}">[Country]</span><br><br>
+        <span><b>Contact Number</b>:</span><br>
+        <span th:text="${CONTACT_NUMBER}">[Contact Number]</span><br><br>
+        <span><b>Message</b>:</span><br>
+        <span th:text="${MESSAGE}">[Message]</span><br><br>
+        <span>Regards,</span><br>
+        <span>Kesa Demo</span>
+    </p>
+</body>
+</html>
