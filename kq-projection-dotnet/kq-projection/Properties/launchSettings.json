@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "kq-Projection": {
+      "commandName": "Project"
+    },
+    "Docker": {
+      "commandName": "Docker"
+    }
+  }
+}

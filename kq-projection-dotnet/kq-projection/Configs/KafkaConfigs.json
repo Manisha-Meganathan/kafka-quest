@@ -1,0 +1,9 @@
+{
+  "bootstrap.servers": "172.23.185.55:9093",
+  "client.id": "KQ_Projection_DotNet_App",
+  "allow.auto.create.topics": true,
+  "group.id": "KQ_Projection",
+  "auto.offset.reset": "earliest",
+  "max.partition.fetch.bytes": 4500000,
+  "message.max.bytes": 4500000
+}
