@@ -116,13 +116,6 @@ export enum ApiCallType {
 export enum GameSizes {
   _4X4 = "4 X 4",
   _5X5 = "5 X 5",
-  _6X6 = "6 X 6"
-}
-
-export enum CompanySizes {
-  small = "Small (1-50 Employees)",
-  medium = "Medium (51-250 Employees)",
-  large = "Large (>250 Employees)"
 }
 
 }

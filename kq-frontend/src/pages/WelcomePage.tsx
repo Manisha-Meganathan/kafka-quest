@@ -8,8 +8,8 @@ function WelcomePage() {
     const navigate=useNavigate();
 
     return (
-        <div className="flex flex-col min-w-[375px] h-screen bg-primary-black text-white align-top lg:flex-row overflow-auto">
-            <div className="flex flex-col mt-10 items-center lg:items-start lg:justify-center lg:mx-10 lg:w-[40%]">
+        <div className="flex flex-col min-w-[375px] h-screen bg-blue-950 text-white align-top lg:flex-row overflow-auto">
+            <div className="flex flex-col mt-10 items-center lg:items-start lg:justify-center lg:mx-10 lg:w-[60%]">
                 <div className="flex mb-2 lg:mx-5">
                 </div>
                 <div className="flex items-center mt-4 text-center">

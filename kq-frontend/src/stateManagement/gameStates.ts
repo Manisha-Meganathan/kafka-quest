@@ -7,7 +7,6 @@ import {
     setPlayer,
     setGameId,
     updatePieces,
-    setSize,
     setScore,
     start,
     shuffle,
@@ -16,8 +15,6 @@ import {
     addEvent,
     reset,
     setTimerState,
-    setHorizontalSize,
-    setVerticalSize
 } from "./gameActions";
 
 
@@ -65,9 +62,9 @@ export const initialGameState: gameState = {
         username: ""
     },
     isLoggedIn: false,
-    gameSize: 25,
-    horizontalSize: 5,
-    verticalSize: 5,
+    gameSize: 16,
+    horizontalSize: 4,
+    verticalSize: 4,
     puzzlePieces: {
         draggablePieces: [],
         remainingPices: [],
@@ -91,9 +88,6 @@ const gameStateSlice = createSlice({
         setPlayerData: setPlayer,
         setCurrentGameId: setGameId,
         updatePuzzlePieces: updatePieces,
-        setPuzzleSize: setSize,
-        setHorizontalPuzzleSize: setHorizontalSize,
-        setVerticalPuzzleSize: setVerticalSize,
         setScorecard: setScore,
         shufflePieces: shuffle,
         startGame: start,
@@ -109,9 +103,6 @@ export const {
     setIsGameStarted,
     setCurrentGameId,
     setPlayerData,
-    setPuzzleSize,
-    setHorizontalPuzzleSize,
-    setVerticalPuzzleSize,
     updatePuzzlePieces,
     setScorecard,
     shufflePieces,

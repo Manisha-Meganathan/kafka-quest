@@ -37,7 +37,7 @@ function EventSideDock() {
 
   return (
     <>
-      <div className="fixed w-[22%] h-full bg-grey-light pt-4 px-4 overflow-y custom-scrollbar">
+      <div className="fixed w-[22%] h-full bg-sky-950 pt-4 px-4 overflow-y custom-scrollbar">
         {showHowToPlay ?
           <>
             <TopBar title="How to play" icon={icon_info} onClose={() => dispatchAction(toggleHowToPlay())} />

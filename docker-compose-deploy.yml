@@ -1,0 +1,174 @@
+version: "3.9"
+name: "kq"
+networks:
+  kq-kafka-network:
+    name: kq-kafka-network
+    driver: bridge
+services:
+  kq-aggregate:
+    container_name: "kq-aggregate"
+    build:
+      dockerfile: kq-aggregate/Dockerfile
+      context: ./java-apps
+    networks:
+      - kq-kafka-network
+    environment:
+      KAFKA_BOOTSTRAP_SERVERS: kq-kafka:9092
+      KAFKA_APPLICATION_ID: kq-aggregate
+      KAFKA_MAX_REQUEST_SIZE: 4500000
+      SOURCE_TOPIC_REGEX: in-topic
+      SINK_TOPIC: event-log
+      DB_CONNECTION: jdbc:postgresql://kq-postgres-db:5432/kqdb
+      DB_USER: postgres
+      DB_PASSWORD: password
+    depends_on:
+      - kq-kafka
+  kq-sink-application:
+    container_name: "kq-sink-application"
+    build:
+      dockerfile: kq-sink-application/Dockerfile
+      context: ./java-apps
+    networks:
+      - kq-kafka-network
+    environment:
+      KAFKA_BOOTSTRAP_SERVERS: kq-kafka:9092
+      KAFKA_APPLICATION_ID: kq-sink-application
+      KAFKA_MAX_PARTITION_FETCH_BYTES: 4500000
+      SOURCE_TOPIC_REGEX: event-log
+      DB_CONNECTION: jdbc:postgresql://kq-postgres-db:5432/kqdb
+      DB_USER: postgres
+      DB_PASSWORD: password
+    depends_on:
+      - kq-kafka
+  kq-api-service:
+    hostname: "api"
+    container_name: "kq-api-service"
+    build:
+      context: ./java-apps
+      dockerfile: kq-api-service/Dockerfile
+    dns:
+      - 8.8.8.8
+    ports:
+      - 9080:8080
+    networks:
+      - kq-kafka-network
+    environment:
+      BOOTSTRAP_SERVERS: kq-kafka:9092
+      GROUP_ID: kafka-api-service
+      KAFKA_MAX_PARTITION_FETCH_BYTES: 4500000
+      USER_EVENT_TOPIC: in-topic
+      RESPONSE_EVENT_TOPIC: out-topic
+      DB_CONNECTION: jdbc:postgresql://kq-postgres-db:5432/kqdb
+      DB_USER: postgres
+      DB_PASSWORD: password
+    depends_on:
+      - kq-kafka
+  kq-zookeeper:
+    image: "bitnami/zookeeper:latest"
+    container_name: "kq-zookeeper"
+    hostname: kq-zookeeper
+    ports:
+      - "2182:2181"
+    networks:
+      - kq-kafka-network
+    environment:
+      - ALLOW_ANONYMOUS_LOGIN=yes
+    volumes:
+      - "./kafka_zookeeper:/bitnami/zookeeper"
+  kq-kafka:
+    image: "bitnami/kafka:3.2.1-debian-11-r7"
+    container_name: "kq-kafka"
+    hostname: "kq-kafka"
+    ports:
+      - "29092:29092"
+    environment:
+      - BITNAMI_DEBUG=true
+      - KAFKA_CFG_ZOOKEEPER_CONNECT=kq-zookeeper:2181
+      - ALLOW_PLAINTEXT_LISTENER=yes
+      - KAFKA_CFG_LISTENER_SECURITY_PROTOCOL_MAP=CLIENT:PLAINTEXT,EXTERNAL:PLAINTEXT
+      - KAFKA_CFG_LISTENERS=CLIENT://:9092,EXTERNAL://:29092
+      - KAFKA_INTER_BROKER_LISTENER_NAME=CLIENT
+      - KAFKA_CFG_ADVERTISED_LISTENERS=CLIENT://kq-kafka:9092,EXTERNAL://localhost:29092
+      - KAFKA_CFG_MESSAGE_MAX_BYTES=4500000
+      - KAFKA_CFG_AUTO_CREATE_TOPICS_ENABLE=true
+    networks:
+      - kq-kafka-network
+    depends_on:
+      - kq-zookeeper
+    volumes:
+      - "./kafka_data:/bitnami/kafka"
+  kq-postgres-db:
+    image: debezium/postgres:15-alpine
+    container_name: kq-postgres-db
+    hostname: kq-postgres-db
+    restart: always
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=password
+      - POSTGRES_DB=kqdb
+    ports:
+      - "5433:5432"
+    networks:
+      - kq-kafka-network
+  kq-kafka-ui:
+    image: provectuslabs/kafka-ui
+    container_name: kq-kafka-ui
+    hostname: kq-kafka-ui
+    ports:
+      - 9081:8080
+    restart: always
+    environment:
+      - KAFKA_CLUSTERS_0_NAME=local
+      - KAFKA_CLUSTERS_0_BOOTSTRAPSERVERS=kq-kafka:9092
+      - KAFKA_CLUSTERS_0_READONLY=true
+      - SERVER_SERVLET_CONTEXT_PATH=/kafkaui
+    networks:
+      - kq-kafka-network
+    depends_on:
+      - kq-kafka
+  kq-kafka-ui-admin:
+    image: provectuslabs/kafka-ui
+    container_name: kq-kafka-ui-admin
+    hostname: kq-kafka-ui-admin
+    ports:
+      - 9082:8080
+    restart: always
+    environment:
+      - KAFKA_CLUSTERS_0_NAME=local
+      - KAFKA_CLUSTERS_0_BOOTSTRAPSERVERS=kq-kafka:9092
+      - KAFKA_CLUSTERS_0_READONLY=false
+      - SERVER_SERVLET_CONTEXT_PATH=/kafkaui-admin
+      - AUTH_TYPE=LOGIN_FORM
+      - SPRING_SECURITY_USER_NAME=kq-user
+      - SPRING_SECURITY_USER_PASSWORD=_D?:8"Svo]Sc<mmdUC
+    networks:
+      - kq-kafka-network
+    depends_on:
+      - kq-kafka
+  kq-projection-dotnet:
+    container_name: "kq-projection-dotnet"
+    build:
+      context: ./kq-projection-dotnet/kq-projection
+      dockerfile: Dockerfile
+    networks:
+      - kq-kafka-network
+    environment:
+      bootstrap.servers: kq-kafka:9092
+      client.id: KQ_Projection_DotNet_App
+      max.partition.fetch.bytes: 4500000
+      message.max.bytes: 4500000
+      group.id: KQ_Projection
+      source_topic_regex: event-log
+      sink_topic: out-topic
+      allow.auto.create.topics: true
+    depends_on:
+      - kq-kafka
+  frontend:
+    container_name: "Event-source-frontend"
+    build:
+      context: ./kq-frontend
+      dockerfile: Dockerfile.prod
+    ports:
+      - 3000:80
+    networks:
+      - kq-kafka-network

@@ -23,6 +23,7 @@ public class PlayerController {
 
     private final PlayerService playerService;
 
+    @CrossOrigin(origins = "*")
     @PostMapping("register")
     public ResponseEntity<Player> register(@RequestBody @Valid Player player) {
         final var createdPlayer = playerService.createPlayer(player);

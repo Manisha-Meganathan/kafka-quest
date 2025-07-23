@@ -16,11 +16,10 @@ import GameEndPopup from "../components/common/GameEndPopup";
 import EventSideDock from "../components/game/eventlist/EventSideDock";
 import Grid from "../components/game/puzzle/Grid";
 import PiecePanel from "../components/game/puzzle/PiecePanel";
-import { resetGame, setHorizontalPuzzleSize, setPuzzleSize, setVerticalPuzzleSize, shufflePieces } from '../stateManagement/gameStates'
+import { resetGame, shufflePieces } from '../stateManagement/gameStates'
 import { useEffect, useState } from 'react'
 import Loader from '../components/common/Loader'
 import Timer from '../components/common/Timer'
-import CustomDropDown from '../components/common/CustomDropdown'
 import { CommonTypes } from '../types/common'
 import { UiTexts } from '../consts/uiTexts';
 import ResetPopup from '../components/common/ResetPopup'
@@ -50,23 +49,6 @@ function Dashboard() {
       console.log("Already logged in, game already started!")
     }
   }
-
-  const handleGameSizeChange = (selectedSize: CommonTypes.GameSizes) => {
-    const sizeMappings: Record<CommonTypes.GameSizes, { horizontalSize: number; verticalSize: number }> = {
-      [CommonTypes.GameSizes._4X4]: { horizontalSize: 4, verticalSize: 4 },
-      [CommonTypes.GameSizes._5X5]: { horizontalSize: 5, verticalSize: 5 },
-      [CommonTypes.GameSizes._6X6]: { horizontalSize: 6, verticalSize: 6 },
-    };
-
-    const { horizontalSize, verticalSize } = sizeMappings[selectedSize];
-
-    dispatchAction(setHorizontalPuzzleSize(horizontalSize));
-    dispatchAction(setVerticalPuzzleSize(verticalSize));
-    dispatchAction(setPuzzleSize(horizontalSize * verticalSize))
-
-    setGameSize(selectedSize);
-    console.log("Selected game size:", selectedSize);
-  };
 
   useEffect(() => {
     console.log("State change detected: ", gameState)
@@ -143,14 +125,6 @@ function Dashboard() {
                 handleStartButtonClick={handleStartButtonClick}
                 onGameResetRequest={onGameResetRequestPopUp}
                 onShuffleButtonClick={() => dispatchAction(shufflePieces())} />
-
-              <CustomDropDown
-                title='Game size'
-                options={Object.assign(CommonTypes.GameSizes)}
-                defaultOption={gameSize}
-                onChange={(selectedItem) => { handleGameSizeChange(selectedItem as unknown as CommonTypes.GameSizes) }}
-                disabled={isDropDownDisabled || gameState.isGameStarted}
-              />
             </div>
           </div>
 
