@@ -11,12 +11,5 @@ export namespace UiTexts{
     export const resolutionWarningMessage : string = "This website is not suitable for mobile esolutions!"
     export const mobileDeviceWarning : string = "This website is not supported for mobile visitors!"
     export const noteWarning : string = "Please Note"
-    export const emailSendSuccess : string = "Success"
-    export const emailSendFailure : string = "Failure"
-    export const emailSendSuccessTitle: string = "Thank you for your interest!" 
-    export const emailSendSuccessMessage: string = "Your demo request has been sent. Expect an email from us soon." 
-    export const emailSendFailureTitle: string = "Error" 
-    export const emailSendFailureMessage: string = "Error sending email. Please try again later."  
-
 }
 

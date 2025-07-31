@@ -8,14 +8,6 @@ export interface HowToPlayInstruction {
 }
 export const tutorials: HowToPlayInstruction[] = [
     {
-        title: "Configure:",
-        instructions: [
-            {
-                number: 1,
-                instruction: "Choose your preferred game size from the bottom button row using the game size dropdown."
-            }
-        ]
-    }, {
         title: "Start to play:",
         instructions: [
             {
