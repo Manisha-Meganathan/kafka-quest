@@ -1,0 +1,15 @@
+﻿using KQ_Projection.Common.Enums;
+using System.Text.Json.Serialization;
+
+namespace KQ_Projection.Common.Models.Events
+{
+    public class ExceptionalEventResponseData : ResponseData
+    {
+        [JsonPropertyName("previousEventType")]
+        [JsonConverter(typeof(JsonStringEnumConverter))]
+        public EventType previousEventType { get; set; }
+
+        [JsonPropertyName("exceptionMessage")]
+        public String exceptionMessage { get; set; }
+    }
+}

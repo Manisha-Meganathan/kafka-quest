@@ -1,0 +1,30 @@
+spring:
+  kafka:
+    bootstrap-servers: localhost:9093
+    consumer:
+      group-id: kafka-api-service
+      max-partition-fetch-bytes: 4500000
+    topics:
+      producer-topic: in-topic
+      consumer-topic: out-topic
+  datasource:
+    platform: postgres
+    url: jdbc:postgresql://localhost:5432/kqdb
+    username: postgres
+    password: password
+    driver-class-name: org.postgresql.Driver
+    initialization-mode: always
+    continue-on-error: false
+  flyway:
+    locations: classpath:db/migration
+    enabled: true
+    default-schema: kq_auth
+    schemas: kq_auth
+  jpa:
+    open-in-view: false
+    show-sql: false
+    hibernate:
+      ddl-auto: none
+      dialect: org.hibernate.dialect.PostgreSQLDialect
+  mvc:
+    throw-exception-if-no-handler-found: true

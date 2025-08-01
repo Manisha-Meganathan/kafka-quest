@@ -1,0 +1,30 @@
+spring:
+    kafka:
+        bootstrap-servers: ${BOOTSTRAP_SERVERS}
+        consumer:
+            group-id: ${GROUP_ID}
+            max-partition-fetch-bytes: ${KAFKA_MAX_PARTITION_FETCH_BYTES}
+        topics:
+            producer-topic: ${USER_EVENT_TOPIC}
+            consumer-topic: ${RESPONSE_EVENT_TOPIC}
+    datasource:
+        platform: postgres
+        url: ${DB_CONNECTION}
+        username: ${DB_USER}
+        password: ${DB_PASSWORD}
+        driver-class-name: org.postgresql.Driver
+        initialization-mode: always
+        continue-on-error: false
+    flyway:
+        locations: classpath:db/migration
+        enabled: true
+        default-schema: kq_auth
+        schemas: kq_auth
+    jpa:
+        open-in-view: false
+        show-sql: false
+        hibernate:
+            ddl-auto: none
+            dialect: org.hibernate.dialect.PostgreSQLDialect
+    mvc:
+        throw-exception-if-no-handler-found: true

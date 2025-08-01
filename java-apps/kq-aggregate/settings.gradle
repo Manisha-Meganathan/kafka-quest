@@ -1,0 +1,5 @@
+apply from: '../kq-common/shadow-jar.plugin.gradle'
+
+rootProject.name = 'kq-aggregate'
+
+apply from: '../kq-common/common.gradle'
